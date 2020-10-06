@@ -1,0 +1,19 @@
+{
+  "name": "thyme",
+  "version": "2.3.0",
+  "dependencies": {
+    "fs": "0.0.2",
+    "moment": "^2.24.0",
+    "mqtt": "^2.9.1",
+    "serialport": "^7.1.5",
+    "util": "^0.10.3"
+  },
+  "description": "&Cube:Thyme:Sparrow",
+  "main": "thyme.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Il Yeup Ahn, KETI",
+  "license": "BSD-3-Clause"
+}
