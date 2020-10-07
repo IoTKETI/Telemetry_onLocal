@@ -2,6 +2,9 @@
  * Created by Il Yeup, Ahn in KETI on 2020-09-04.
  */
 
+var args = process.argv.slice(2);
+console.log(args[0]);
+console.log(args[1]);
 var mqtt = require('mqtt');
 var fs = require('fs');
 var util = require('util');
@@ -12,13 +15,13 @@ var mavPort = null;
 
 var mqtt_client = null;
 
-var mavPortNum = '/dev/ttyAMA0';
+var mavPortNum = args[1];
 var mavBaudrate = '57600';
-mavPortNum = check_port();
+// mavPortNum = check_port();
 // console.log('- ', mavPortNum);
 
 var ae_name = 'UTM_UVARC';
-var cnt_name = 'KETI_Air_01';
+var cnt_name = args[0];
 
 var my_parent_cnt_name = '/Mobius/' + ae_name + '/Drone_Data/' + cnt_name;
 var my_cnt_name = '/Mobius/' + ae_name + '/Drone_Data/' + cnt_name + '/disarm';
@@ -83,12 +86,7 @@ function tas_ready() {
     // }
     // else if(my_drone_type === 'pixhawk') {
     mavBaudrate = '57600';
-    if (mavPortNum != '/dev/ttyAMA0'){
-        check_port();
-    }
-    else{
-        setTimeout(mavPortOpening, 2000);
-    }
+    mavPortOpening();
     // }
     // else {
 
